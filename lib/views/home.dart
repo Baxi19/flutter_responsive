@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+    
     return Scaffold(
       backgroundColor: Color(0xFF212239),
       body: Padding(
@@ -18,7 +20,27 @@ class Home extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView.builder(
+              child: AnimatedSwitcher(
+                duration: const Duration(seconds: 1), 
+                transitionBuilder: (widget, animation){
+                  return ScaleTransition(
+                    scale: animation,
+                    child: widget,
+                  );
+                },
+                child: orientation == Orientation.portrait ?  
+                ListView.builder(
+                  itemCount: 20,
+                  itemBuilder: (context, index){
+                  return Center(
+                    child: _CardItem(
+                      color: Colors.primaries[index % Colors.primaries.length]
+                    )
+                  );
+                })
+              : 
+              GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 itemCount: 20,
                 itemBuilder: (context, index){
                 return Center(
@@ -26,8 +48,9 @@ class Home extends StatelessWidget {
                     color: Colors.primaries[index % Colors.primaries.length]
                   )
                 );
-              }),
-            )
+              })
+              ),
+            ),
           ],
         ),
       ),
