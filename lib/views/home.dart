@@ -4,7 +4,6 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
-    
     return Scaffold(
       backgroundColor: Color(0xFF212239),
       body: Padding(
@@ -62,8 +61,8 @@ class _CardItem extends StatelessWidget {
   final Color color;
 
   const _CardItem({
-    Key? key, required this.color
-  }) : super(key: key);
+    required this.color
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +85,7 @@ class _CardItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text("\$15,872"),
+              Text("\$3000,0"),
               Spacer(),
               Text("4200 **** **** 0420"),
               Text("Baxi 19"),
