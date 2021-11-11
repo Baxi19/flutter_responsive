@@ -6,13 +6,13 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
-      backgroundColor: Color(0xFF212239),
+      backgroundColor: const Color(0xFF212239),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            const Text(
               "Your Cards",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
                 })
               : 
               GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 itemCount: 20,
                 itemBuilder: (context, index){
                 return Center(
